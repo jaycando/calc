@@ -76,15 +76,12 @@
     </div>
 
     <script>
-         function formatInput(input) {
-            const value = input.value.replace(/,/g, '');
+        function formatInput(input) {
+            let value = input.value.replace(/,/g, '');
             if (!isNaN(value) && value !== '') {
                 const cursorPosition = input.selectionStart;
-                const oldLength = input.value.length;
                 input.value = numberWithCommas(value);
-                const newLength = input.value.length;
-                const newCursorPosition = cursorPosition + (newLength - oldLength);
-                input.setSelectionRange(newCursorPosition, newCursorPosition);
+                input.setSelectionRange(cursorPosition, cursorPosition);
             } else {
                 input.value = '';
             }
