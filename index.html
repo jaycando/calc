@@ -76,6 +76,9 @@
     </div>
 
     <script>
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
         function calculate() {
             const currentShares = parseFloat(document.getElementById('currentShares').value);
             const currentAvgPrice = parseFloat(document.getElementById('currentAvgPrice').value);
@@ -86,7 +89,7 @@
             const additionalCost = additionalShares * currentPrice;
 
             document.getElementById('result').innerHTML = `
-                <p>목표 평단가를 맞추기 위해 필요한 추가 투자 금액: <strong>${additionalCost.toFixed(2)}</strong>원</p>
+                <p>목표 평단가를 맞추기 위해 필요한 추가 투자 금액: <strong>${numberWithCommas(Math.round(additionalCost))}</strong>원</p>
                 <p>필요한 추가 주식 수: <strong>${additionalShares.toFixed(2)}</strong>주</p>
             `;
         }
