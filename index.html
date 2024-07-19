@@ -119,7 +119,7 @@
 
             document.getElementById('result').innerHTML = `
                 <p>목표 평단가를 맞추기 위해 필요한 추가 투자 금액: <strong>${numberWithCommas(Math.round(additionalCost))}</strong>원</p>
-                <p>필요한 추가 주식 수: <strong>${additionalShares.toFixed(2)}</strong>주</p>
+                <p>필요한 추가 주식 수: <strong>${numberWithCommas(additionalShares.toFixed(2))}</strong>주</p>
             `;
         }
     </script>
