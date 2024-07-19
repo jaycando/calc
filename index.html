@@ -59,7 +59,7 @@
     <div class="calculator">
         <h1>주식 평단가 계산기</h1>
         <label for="currentShares">현재 보유 주식 수:</label>
-        <input type="number" id="currentShares" placeholder="주식 수를 입력하세요" required oninput="formatInput(this)">
+        <input type="number" id="currentShares" placeholder="주식 수를 입력하세요" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/\d(?=(?:\d{3})+$)/g, '$&,')" />
         
         <label for="currentAvgPrice">현재 평단가:</label>
         <input type="number" id="currentAvgPrice" placeholder="평단가를 입력하세요" required oninput="formatInput(this)">
