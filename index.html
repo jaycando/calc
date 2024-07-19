@@ -82,10 +82,8 @@
             const targetAvgPrice = parseFloat(document.getElementById('targetAvgPrice').value);
             const currentPrice = parseFloat(document.getElementById('currentPrice').value);
 
-            const totalCost = currentShares * currentAvgPrice;
-            const targetTotalCost = currentShares * targetAvgPrice;
-            const additionalCost = targetTotalCost - totalCost;
-            const additionalShares = additionalCost / currentPrice;
+            const additionalShares = (currentShares * currentAvgPrice-targetAvgPrice*currentShares)/(targetAvgPrice-currentPrice)
+            const additionalCost = additionalShares * currentPrice;
 
             document.getElementById('result').innerHTML = `
                 <p>목표 평단가를 맞추기 위해 필요한 추가 투자 금액: <strong>${additionalCost.toFixed(2)}</strong>원</p>
